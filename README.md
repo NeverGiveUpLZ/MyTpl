@@ -40,20 +40,27 @@
 >		或者输出参与计算
 >		{>=a+a*3<}
 
-*   模板中直接运行函数
+*    模板中直接运行函数
 >        {>alert('123');<}
 >        
->        假如系统定义增强函数 each 使用方式如下
+>        假如系统定义增强函数 each 函数如下
+>        Array.prototype.each=function(c){ /*1.1*/
+>            for(var i=0,val;val=this[i++];){
+>                (c||empfunc)(val,i);
+>            }
+>            return this;
+>        };
+>        使用
 >        {> [{id:1},{id:2}].each(function(val,key){ <}
 >            {>=val.id<}
 >        {> }); <}
 >
-*	判断 if 注意分号
->		{>if( a>3 ):<}
->			<span>a大于3</span
->		{>elseif(a>4):<}
->			<span>a大于4</span
->		{>else:<}
+*    判断 if 注意分号
+>        {>if( a>3 ):<}
+>            <span>a大于3</span
+>        {>elseif(a>4):<}
+>            <span>a大于4</span
+>        {>else:<}
 >			<span>a不大于3也不大于4</span
 >		{>/if<}
 >			
