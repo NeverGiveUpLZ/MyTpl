@@ -3,26 +3,27 @@
 ![速度测试图片](https://github.com/NeverGiveUpLZ/useTpl/blob/master/_speed.png)
 
 *   注
->       1这个模板引擎注重好用而已 不注重速度，要求速度超快的童鞋就用其他的吧
->       2模板呢中两个空格以上将替换成一个空格
+>       1我开发这个的时候为了小巧，没有可以注重速度方面
+>       2模板呢中两个空格以上将替换成一个空格
 >       3<!-- -->注释将被直接删除
 	
 *   使用
->	设置边界符
->	var uefn=usetpl({tagBegin:'{>',tagEnd:'<}'});
+>       设置边界符
+>       var uefn=usetpl({tagBegin:'{>',tagEnd:'<}'});
 >       设置模板
 >       uefn=uefn(模板);
->    	进行渲染
->       document,write(uefn(数据,true));
->	    直接渲染
->       usetpl(模板,数据);
+>       进行渲染
+>       document.write(uefn(数据,true));
+>
+>       直接渲染输出
+>       document.write(usetpl(模板,数据));
 
 *   注 下面的测试模板使用了自定义边界符，默认的边界符如下
->		{
->			tagBegin:'{{',
->			tagEnd:'}}',
->			tagOut:'='
->		}
+>       {
+>           tagBegin:'{{',
+>           tagEnd:'}}',
+>           tagOut:'='
+>       }
 *   模板临时定义变量
 >		{>var pi=3.1415926;<}
 >		或
