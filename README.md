@@ -25,20 +25,20 @@
 >            tagOut:'='
 >        }
 *   模板临时定义变量
->		{>var pi=3.1415926;<}
->		或
->		{>
->			var a=1;
->			var b='b';>
->			var c="c";
->			var a=10+5+a;
->		<}
+>        {>var pi=3.1415926;<}
+>        或
+>        {>
+>            var a=1;
+>            var b='b';>
+>            var c="c";
+>            var a=10+5+a;
+>        <}
 
 
-*   输出
->		{>=a<}
->		或者输出参与计算
->		{>=a+a*3<}
+*    输出
+>        {>=a<}
+>        或者输出参与计算
+>        {>=a+a*3<}
 
 *    模板中直接运行函数
 >        {>alert('123');<}
@@ -61,13 +61,13 @@
 >        {>elseif(a>4):<}
 >            <span>a大于4</span
 >        {>else:<}
->			<span>a不大于3也不大于4</span
->		{>/if<}
->			
-*	循环
->	    {>var list=[{id:1},{id:2}]; <}
->		{>for(var k=0;k<list.length;k++): <}
->			{>=list[k].id<}
->		{>/for<}
->				
+>            <span>a不大于3也不大于4</span
+>        {>/if<}
+>
+*    循环
+>        {>var list=[{id:1},{id:2}]; <}
+>        {>for(var k=0;k<list.length;k++): <}
+>            {>=list[k].id<}
+>        {>/for<}
+>
 >
