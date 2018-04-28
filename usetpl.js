@@ -15,8 +15,6 @@ function usetpl(tpl,data,fast){
 	,tagBegin=usetpl.tagBegin||'{{'
 	,tagEnd=usetpl.tagEnd||'}}'
 	,tagOut=usetpl.tagOut||'='
-	,start="var P='';"
-	,end='return P;'
 	,_tagBegin=null
 	,_tagEnd=null
 	,regTpl=null
