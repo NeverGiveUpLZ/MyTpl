@@ -2,15 +2,14 @@
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-		<script src="jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="usetpl.js"></script>
-
+		<script src="./test/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="./usetpl.js"></script>
 	</head>
 	<body>
 		<script type="text/javascript">
 		Array.prototype.each=function(c){
 			for(var i=0;i<this.length;i++){
-				(c||empfunc)(this[i],i);
+                (c||empfunc)(this[i],i);
 			}
 			return this;
 		};
@@ -56,8 +55,8 @@
 				--
 			{>/for<}
 			<style>.red{color:red;}</style>
-			<p>-城市：<span style="color:red">{>=city<} {>=count+""<}</span></p>
-			<p>更新时间：<span style='color:red'>{>=date<}</span></p>
+			<p>-城市：<span style="color:red">{>=data.city<} - aqi : {>=data.aqi<}</span></p>
+			<p>更新时间：<span style='color:red'>{>=data.yesterday.date<}</span></p>
 			<p>今日：{>=data.yesterday.date<}	{>=data.yesterday?data.yesterday.high:"没有最高气温"<} {>=data.yesterday?data.yesterday.low:"木有最低"<}</p>
 			<p>外出建议：{>=data.ganmao<}</p>
 			<p>其他</p>
@@ -92,19 +91,13 @@
 		<input type="hidden" class="e_tempjs" />
 
 		<script type="text/javascript">
-			$('.e_tempjs').load('http://localhost:8585/1/weater.json',function(e){
+			$('.e_tempjs').load('./weater.json',function(e){
 				e=JSON.parse(e);
-
-				console.time(103)
-				//for(var i=0;i<10000;i++){
-					var html = usetpl({tagBegin:'{>',tagEnd:'<}',tagOut:'='})(
-						document.getElementById('hello_template2_5_1').innerHTML,e
-					);
-				//}
-				console.timeEnd(103)
-
-				//document.write(html);
-				document.write(1);
+				console.log(e)
+				var html=usetpl({tagBegin:'{>',tagEnd:'<}',tagOut:'='})(
+					document.getElementById('hello_template2_5_1').innerHTML,e
+				);
+				document.write(html);
 			});
 		</script>
 
