@@ -14,7 +14,7 @@
 	<script src="./js/easytemplate.js"></script>
 	<script src="./js/underscore.js"></script>
 	<script src="./js/yaya-template.js"></script>
-	<script src="./../usetpl.js"></script>
+	<script src="../mytpl.js"></script>
 	
 	
 	<script>
@@ -45,12 +45,12 @@
         // 待测试的引擎列表
         var testList = [
             {
-                name: 'usetpl',
+                name: 'MyTpl',
                 tester: function (source) {
                     //var source = document.getElementById('tppl').innerHTML;
-                    var uefn = usetpl({tagBegin: '{>', tagEnd: '<}', tagOut: '='})(source);
+                    var uefn = MyTpl({tagBegin: '{>', tagEnd: '<}', tagOut: '='})(source);
                     for (var i = 0; i < number; i++) {
-                        var e = uefn(data, true);
+                        uefn(data, true);
                     }
                 }
             },
@@ -270,7 +270,7 @@
             tester(target);
         };
 	</script>
-	<script id="usetpl" type="text/tmpl">
+	<script id="MyTpl" type="text/tmpl">
 		<ul>
 			{>for (var val, i = 0, l = list.length; i < l; i ++):<}
 				{>val = list[i];<}
@@ -290,6 +290,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	
@@ -322,6 +326,10 @@
 	
 	
 	
+	
+	
+	
+	
 	</script>
 	
 	<script id="usetpl3" type="text/tmpl">
@@ -344,6 +352,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	
@@ -378,6 +390,10 @@
 	
 	
 	
+	
+	
+	
+	
 	</script>
 	<!-- artTemplate 的模板 -->
 	<script id="artTemplate" type="text/tmpl">
@@ -399,6 +415,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	
@@ -431,6 +451,10 @@
 	
 	
 	
+	
+	
+	
+	
 	</script>
 	<!-- yayatemplate 的模板 -->
 	<script id="YayaTemplate" type="text/tmpl">
@@ -452,6 +476,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	
@@ -484,6 +512,10 @@
 	
 	
 	
+	
+	
+	
+	
 	</script>
 	<!-- jqueryTmpl 的模板 -->
 	<script id="jqueryTmpl" type="text/tmpl">
@@ -505,6 +537,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	
@@ -537,6 +573,10 @@
 	
 	
 	
+	
+	
+	
+	
 	</script>
 	<!--Handlebars  的模板 -->
 	<script id="Handlebars" type="text/tmpl">
@@ -558,6 +598,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	
@@ -590,6 +634,10 @@
 	
 	
 	
+	
+	
+	
+	
 	</script>
 	<!-- underscore 的模板 -->
 	<script id="underscoreTemplate" type="text/tmpl">
@@ -611,6 +659,10 @@
 
 
   
+	
+	
+	
+	
 	
 	
 	

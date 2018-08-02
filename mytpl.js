@@ -1,4 +1,4 @@
-function usetpl(tpl, data, fast) {
+function MyTpl(tpl, data, fast) {
     var fn = function (d) {
             if (fast) {
                 fn.$ = fn.$ || new Function(fn.t);
@@ -12,9 +12,9 @@ function usetpl(tpl, data, fast) {
                 return (new Function(k, fn.t)).apply(d, v);
             }
         }
-        , tagBegin = usetpl.tagBegin || '{{'
-        , tagEnd = usetpl.tagEnd || '}}'
-        , tagOut = usetpl.tagOut || '='
+        , tagBegin = MyTpl.tagBegin || '{{'
+        , tagEnd = MyTpl.tagEnd || '}}'
+        , tagOut = MyTpl.tagOut || '='
         , _tagBegin
         , _tagEnd
         , regTpl
@@ -22,10 +22,10 @@ function usetpl(tpl, data, fast) {
     ;
 
     if (typeof tpl === 'object') {
-        usetpl.tagBegin = tpl.tagBegin || tagBegin;
-        usetpl.tagEnd = tpl.tagEnd || tagEnd;
-        usetpl.tagOut = tpl.tagOut || tagOut;
-        return usetpl;
+        MyTpl.tagBegin = tpl.tagBegin || tagBegin;
+        MyTpl.tagEnd = tpl.tagEnd || tagEnd;
+        MyTpl.tagOut = tpl.tagOut || tagOut;
+        return MyTpl;
     }
     _tagBegin = tagBegin.replace(/(.)/g, '\\$1');
     _tagEnd = tagEnd.replace(/(.)/g, '\\$1');

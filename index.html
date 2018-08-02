@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 		<script src="./test/js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="./usetpl.js"></script>
+		<script type="text/javascript" src="./mytpl.js"></script>
 	</head>
 	<body>
 		<script type="text/javascript">
@@ -93,8 +93,7 @@
 		<script type="text/javascript">
 			$('.e_tempjs').load('./weater.json',function(e){
 				e=JSON.parse(e);
-				console.log(e)
-				var html=usetpl({tagBegin:'{>',tagEnd:'<}',tagOut:'='})(
+				var html=MyTpl({tagBegin:'{>',tagEnd:'<}',tagOut:'='})(
 					document.getElementById('hello_template2_5_1').innerHTML,e
 				);
 				document.write(html);

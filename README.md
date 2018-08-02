@@ -1,4 +1,4 @@
-# useTpl
+# MyTpl （历史用命：useTpl)
 
 ![速度测试图片](https://github.com/NeverGiveUpLZ/useTpl/blob/master/_speed.png)
 
