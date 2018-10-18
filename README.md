@@ -1,4 +1,4 @@
-# MyTpl （历史用命：useTpl)
+# MyTpl （曾用名：useTpl)
 
 ![速度测试图片](https://github.com/NeverGiveUpLZ/useTpl/blob/master/_speed.png)
 
