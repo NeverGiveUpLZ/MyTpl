@@ -9,14 +9,14 @@
 	
 *   使用
 >        设置边界符
->        var uefn=usetpl({tagBegin:'{>',tagEnd:'<}'});
+>        var uefn=MyTpl({tagBegin:'{>',tagEnd:'<}'});
 >        设置模板
 >        uefn=uefn(模板);
 >        进行渲染
->        document.write(uefn(数据,true));
+>        document.write(MyTpl(数据,true));
 >
 >        直接渲染输出
->        document.write(usetpl(模板,数据));
+>        document.write(MyTpl(模板,数据));
 
 *   注 下面的测试模板使用了自定义边界符，默认的边界符如下
 >        {
