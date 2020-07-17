@@ -36,7 +36,7 @@ function MyTpl(tpl,data,fast){
 	_tagEnd=tagEnd.replace(/(.)/g,'\\$1');
 	regTpl=eval('/'+_tagEnd+"(.*?)"+_tagBegin+"/g");
 	regJs=eval('/'+_tagBegin+"(.*?)"+_tagEnd+"/g");
-	
+
 	tpl=(tagBegin+"var P='';"+tagEnd+tpl+tagBegin+'return P;'+tagEnd)
 	.replace(/([\n\t])|(  )/g,'')
 	.replace(/(\<\!--[\w\W]*?->)/g,'')
@@ -44,7 +44,7 @@ function MyTpl(tpl,data,fast){
 		if(b[0]){
 			if(debug){
 				var VAL=b.replace(/'/g,"\\'");
-				return tagEnd+fnEStr("P+='"+VAL+"'",JSON.stringify(VAL))+tagBegin;
+				return tagEnd+fnEStr("P+='"+VAL+"';",JSON.stringify(VAL))+tagBegin;
 			}else{
 				return tagEnd+"P+='"+b.replace(/'/g,"\\'")+"';"+tagBegin;
 			}
@@ -56,7 +56,7 @@ function MyTpl(tpl,data,fast){
 		if(tagOut===b.charAt(0)){
 			if(debug){
 				var HTL=b.substr(1);
-				return fnEStr('P+='+HTL,JSON.stringify(HTL));
+				return fnEStr('P+='+HTL,JSON.stringify(HTL))+';';
 			}else{
 				return 'P+='+b.substr(1)+';';
 			}
@@ -67,14 +67,21 @@ function MyTpl(tpl,data,fast){
 			}
 			return b.replace(/else( )*:/,'}else{');
 		}else if(b==='/for'||b==='/if'){
-			return '} /*--*/ ';
+			return '}';
 		}
 		if(debug){
 			if(!b.match(/(\)( )*:)/)&&b.match(/(.*)=(.*)/)){
 				b=fnEStr(b);
 			}
 		}
-		return b.replace(/\)( )*:/,'){');
+
+		var tpls=b.replace(/\)( )*:/,'){');
+		var tplsArr=tpls.split('');
+
+		if( [';',':','{'].indexOf( tplsArr[ tplsArr.length-1 ] ) < 0 ){
+			tpls+=';';
+		}
+		return tpls;
 	});
 	fn.t=tpl;
 	tpl=null;
