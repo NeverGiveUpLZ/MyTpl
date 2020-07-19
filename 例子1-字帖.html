@@ -34,9 +34,9 @@
 			<path d="M1 1 l78 0 l0 78 l-78 0 Z" stroke-width="2" stroke="#980f29" fill-opacity="0"/>
 			<g transform="translate(10,65.9) scale(0.058, -0.0572)">
 				({if(data):})
-				({for(var i=0;i<data.length;i++):})
-				<path d="({=data[i]})" style="fill:rgb(({=colors})); stroke:rgb(({=colors}));" stroke-width="0"></path>
-				({/for})
+					({for(var i=0;i<data.length;i++):})
+						<path d="({=data[i]})" style="fill:rgb(({=colors})); stroke:rgb(({=colors}));" stroke-width="0"></path>
+					({/for})
 				({/if})
 			</g>
 		</svg>
@@ -44,32 +44,32 @@
 	({elseif(type==1):})
 	<!--绘画笔顺-->
 	({for(var i=0;i<data.length;i++):})
-	<li class="svg">
-		<svg width="80px" height="80px" version="1.1" xmlns="http://www.w3.org/2000/svg">
-			<path d="M-2 40 L80 40" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
-			<path d="M40 -2 L40 80" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
-			<path d="M1 1 l78 0 l0 78 l-78 0 Z" stroke-width="2" stroke="#980f29" fill-opacity="0"/>
-			<g transform="translate(10,65.9) scale(0.058, -0.0572)">
-				({for(var ii=0;ii<=i;ii++):})
-				<path d="({=data[ii]})" style="fill:rgb( ({=colors}) );stroke:rgb( ({=colors}) );" stroke-width = "0"></path>
-				({/for})
-			</g>
-		</svg>
-	</li>
+		<li class="svg">
+			<svg width="80px" height="80px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<path d="M-2 40 L80 40" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
+				<path d="M40 -2 L40 80" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
+				<path d="M1 1 l78 0 l0 78 l-78 0 Z" stroke-width="2" stroke="#980f29" fill-opacity="0"/>
+				<g transform="translate(10,65.9) scale(0.058, -0.0572)">
+					({for(var ii=0;ii<=i;ii++):})
+					<path d="({=data[ii]})" style="fill:rgb( ({=colors}) );stroke:rgb( ({=colors}) );" stroke-width = "0"></path>
+					({/for})
+				</g>
+			</svg>
+		</li>
 	({/for})
 	<!--补充满方格-->
 	({if( data.length != 11  ):})
-	({var dolists=11-data.length%12})
-	({for(var i=0;i<dolists;i++):})
-	<li class="svg">
-		<svg width="80px" height="80px" version="1.1" xmlns="http://www.w3.org/2000/svg">
-			<path d="M-2 40 L80 40" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
-			<path d="M40 -2 L40 80" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
-			<path d="M1 1 l78 0 l0 78 l-78 0 Z" stroke-width="2" stroke="#980f29" fill-opacity="0"/>
-		</svg>
-	</li>
-	({/for})
-	({/if})
+		({var dolists=11-data.length%12})
+			({for(var i=0;i<dolists;i++):})
+				<li class="svg">
+					<svg width="80px" height="80px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+						<path d="M-2 40 L80 40" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
+						<path d="M40 -2 L40 80" stroke-dasharray="4,4" stroke-width="1" stroke="#bb3442" fill-opacity="0"/>
+						<path d="M1 1 l78 0 l0 78 l-78 0 Z" stroke-width="2" stroke="#980f29" fill-opacity="0"/>
+					</svg>
+				</li>
+			({/for})
+		({/if})
 	({/if})
 </script>
 
